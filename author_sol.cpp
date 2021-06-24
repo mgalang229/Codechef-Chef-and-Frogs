@@ -26,8 +26,7 @@ int main() {
 		// input the x-coordinate of the current elements (frog)
 		cin >> frogs[i].x;
 	}
-	// sort the ordering of th elements (coordinates of the frog) while still
-	// maintaing the original index
+	// sort the ordering of the elements (coordinates of the frog) while still maintaining the original index
 	sort(frogs, frogs + n, byX);
 	for (int i = 0; i < n; i++) {
 		// set 'j' to the index of the next element
@@ -36,13 +35,12 @@ int main() {
 		comp[frogs[i].id] = i;
 		// run a while-loop until the current element cannot reach a certain element
 		while (j < n && frogs[j].x <= frogs[j - 1].x + k) {
-			// set the value to the index that reach the current element
+			// set the value to the index that can reach the current element
 			comp[frogs[j].id] = i;
 			// increment 'j'
 			j++;
 		}
-		// set 'i' to 'j' - 1 (to remove the extra increment from while-loop or reset
-		// 'i' to its initial value
+		// set 'i' to 'j' - 1 (to remove the extra increment from while-loop or reset 'i' to its initial value)
 		i = j - 1;
 	}
 	for (int i = 0; i < p; i++) {
